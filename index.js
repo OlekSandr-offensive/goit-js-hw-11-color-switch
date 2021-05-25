@@ -30,6 +30,9 @@ function startColorBar() {
 }
 
 function startTimerColor() {
+  if (timeoutId) {
+    return;
+  }
   timeoutId = setInterval(() => {
     startColorBar();
   }, PROM_DALEY);
@@ -38,4 +41,5 @@ function startTimerColor() {
 function stopTimerColor() {
   refs.startBtn.disabled = false;
   clearInterval(timeoutId);
+  timeoutId = null;
 }
